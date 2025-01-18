@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Mumbai Safar</title>
+  <link rel="stylesheet" href="navbar.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Hero Section -->
+  <header class="bg-cover bg-center h-screen" style="background-image: url('https://www.google.com/maps/vt/data=-XnRu7oq9_U62YSt_SAGA9lXn7SXJHONeSSNiPty3scpvM9DSoIYNRNDovVg66hTVMDjoL7RUJJay8hTqIZeSXhE1ClaZcP19UvyW95Y2OcEK5fFUX_bAe7jhXEBRPo5cR4Xlu42SH1T0erELXOEE7WWPvcInj1AC_8zpaRPcf262p9yzL75ljwGDpBYrkkM3ZlQFVsn3zq399Rv5F1JR-DL1cYwNvJrAiT_K3i6xGdfddAySx1QjSQCcuVgFJCb4tiHonqHK0gjwwG8PZ6Qzpec-tG7o0_g'); opacity: 0.9;">
+    <div class="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center text-white px-6">
+      <h1 class="text-4xl lg:text-6xl font-bold mb-4">Welcome to Mumbai</h1>
+      <p class="text-lg lg:text-2xl mb-6">Discover the city of dreams, culture, and heritage.</p>
+      <a href="#attractions" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Explore Attractions</a>
+    </div>
+  </header>
+
+  <!-- Popular Attractions Section -->
+  <section id="attractions" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Popular Attractions in Mumbai</h2>
+      <div class="relative w-full">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <div class="relative">
+                <img src="images/gatewayOfIndia.jpg" alt="Gateway of India" class="w-full h-96 object-cover">
+                <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center py-4">
+                  <h3 class="text-xl font-bold">Gateway of India</h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <div class="relative">
+                <img src="https://via.placeholder.com/1920x800?text=Marine+Drive" alt="Marine Drive" class="w-full h-96 object-cover">
+                <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center py-4">
+                  <h3 class="text-xl font-bold">Marine Drive</h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <div class="relative">
+                <img src="https://via.placeholder.com/1920x800?text=Elephanta+Caves" alt="Elephanta Caves" class="w-full h-96 object-cover">
+                <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center py-4">
+                  <h3 class="text-xl font-bold">Elephanta Caves</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Swiper Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel Tips Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Travel Tips for Mumbai</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Best Time to Visit</h3>
+          <p class="text-gray-600">The ideal time to visit Mumbai is from October to March when the weather is pleasant.</p>
+        </div>
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Local Transport</h3>
+          <p class="text-gray-600">Use local trains, buses, and auto-rickshaws for economical travel around the city.</p>
+        </div>
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Street Food</h3>
+          <p class="text-gray-600">Don’t miss the iconic Vada Pav, Pav Bhaji, and Bhel Puri from Mumbai’s street vendors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm">&copy; 2025 Explore Mumbai. All rights reserved.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#" class="text-blue-400 hover:text-blue-500">Facebook</a>
+        <a href="#" class="text-blue-400 hover:text-blue-500">Twitter</a>
+        <a href="#" class="text-blue-400 hover:text-blue-500">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SwiperJS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+</body>
+</html>
