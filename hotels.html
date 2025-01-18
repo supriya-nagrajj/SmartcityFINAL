@@ -7,30 +7,28 @@
 
     <title>Hotels</title>
     <link rel="stylesheet" href="hotels.css">
-    <link rel="stylesheet" href="navbar.css">
-
 
 </head>
 
-<body>
-    <nav class="navigation">
-        <img src="images/logo.png" alt="Mumbai Safar Logo" id="logo" />
-        <ul class="nav">
+<body class="overflow-y-scroll">
+    <nav class="bg-gray-300  flex flex-wrap items-center px-2 text-base text-gray-700 space-x-40 space-y-reverse md:py-0 md:flex md:items-center md:justify-between h-20">
+        <img src="images/logo.png" alt="Mumbai Safar Logo" class="w-36  -ml-4 rounded float-start cursor-pointer" />
+        <ul class="md:flex md:items-center">
 
             <li>
-                <a href="newindex.html" class="link">Home</a>
+                <a href="newindex.html" class="ml-20 px-2 py-2 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-400 hover:to-orange-500 rounded-3xl duration-300 font-['Poppins'] text-lg mr-5 hover:border-t-[20px] top-14  shadow-xl border-yellow-200">Home</a>
             </li>
 
 
             <div class="relative inline-block text-left group">
-                <button><a href="" class="link">Bookings</a></button>
-                <div class="drop_menu">
-                    <ul class="drop_menu_ul">
+                <button class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium  rounded-md focus:outline-none"><a href="" class="ml-20 px-2 py-2 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-400 hover:to-orange-500 rounded-3xl duration-300 font-['Poppins'] text-lg mr-5 hover:border-t-[20px] top-14  shadow-xl border-yellow-200">Bookings</a></button>
+                <div class="absolute left-24 mt-1  w-40 rounded-lg shadow-lg bg-white opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-1000">
+                    <ul class="bg-orange-100 overflow-visible z-50 absolute border-none w-[150px] rounded-lg">
                         <li>
-                            <a href="hotels.html">Hotels</a>
+                            <a href="hotels.html" class="block px-4 py-2 text-sm  hover:bg-gray-100  hover:text-gray-900">Hotels</a>
                         </li>
                         <li>
-                            <a href="transportation.html"> Transportation </a>
+                            <a href="transportation.html" class="block px-4 py-2 text-sm  hover:bg-gray-100  hover:text-gray-900"> Transportation </a>
                         </li>
                     </ul>
                 </div>
@@ -39,15 +37,15 @@
 
 
             <li>
-                <a href="index.html" class="link">Visit</a>
+                <a href="places.html" class="ml-20 px-2 py-2 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-400 hover:to-orange-500 rounded-3xl duration-300 font-['Poppins'] text-lg mr-5 hover:border-t-[20px] top-14  shadow-xl border-yellow-200">Visit</a>
             </li>
 
             <li>
-                <a href="index.html" class="link">Foods</a>
+                <a href="food.html" class="ml-20 px-2 py-2 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-400 hover:to-orange-500 rounded-3xl duration-300 font-['Poppins'] text-lg mr-5 hover:border-t-[20px] top-14  shadow-xl border-yellow-200">Foods</a>
             </li>
 
             <li>
-                <a href="events.html" class="link">Events</a>
+                <a href="events.html" class="ml-20 px-2 py-2 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-400 hover:to-orange-500 rounded-3xl duration-300 font-['Poppins'] text-lg mr-5 hover:border-t-[20px] top-14  shadow-xl border-yellow-200">Events</a>
             </li>
         </ul>
 
@@ -55,17 +53,10 @@
 
 
 
-
-    <!-- <div id="bodyBg">
-        <div class="background">
-             <img src="images/background.webp" alt="" id="bg-image"> 
-        </div>
-    </div> -->
-
     <!-- search -->
-    <div class="box">
-        <h3 class="source">Search by Destination</h3>
-        <select name="destination" id="destination">
+    <div class="bg-red-400 h-14 mt-4 rounded-full absolute right-4 top-24 left-[420px] flex items-center justify-between px-8">
+        <h3 class="text-slate-100 font-medium ml-3">Search by Destination</h3>
+        <select name="destination" class="block w-96 h-9 px-2 py-2 -mt-0 border-none rounded-lg shadow-sm focus:outline-none bg-transparent">
             <option value="iskcon">Iskcon Temple</option>
             <option value="goi">Gateway of India</option>
             <option value="sgnp">Sanjay Gandhi National Park</option>
@@ -77,67 +68,68 @@
             <option value="bf">⁠Bandra Fort</option>
             <option value="np">Nehru Planetarium</option>
         </select>
-        <button class="search">Search  </button>
+        <button class="text-slate-500 py-2 px-3 w-40 rounded-full bg-slate-300 hover:bg-yellow-100 ">Search  </button>
     </div>
 
 
 
     <!-- Filter sidebar -->
-    <div class="left_sidebar">
+    <div class="bg-orange-400 rounded-xl fixed top-20 left-3 h-[700px] w-[370px] mt-8 overflow-y-scroll">
         <form action="" method="post" class="sidebar">
-            <h3 class="star">Star Category</h3>
-            <label>
-                <input type="checkbox" name="3star" value="3star" class="checkbox"> 3 Star <br>
+            <h3 class="ml-10 mt-6 text-2xl">Star Category</h3>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="3star" value="3star" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> 3 Star <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="4star" value="4star" class="checkbox"> 4 Star <br>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="4star" value="4star" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> 4 Star <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="5star" value="5star" class="checkbox"> 5 Star <br>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="5star" value="5star" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> 5 Star <br>
             </label>
 
 
-            <h3 class="budget">Budget</h3>
-            <textarea name="budget_min" class="budget_min" placeholder="Min"></textarea> <span class="text">to</span>
-            <textarea name="budget_max" class="budget_max" placeholder="Max"></textarea>
+            <h3 class="ml-6 mt-6 text-2xl">Budget</h3>
+            <textarea name="budget_min" class="ml-9 mt-2 w-20 h-9 px-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none overscroll-none" placeholder="Min"></textarea> 
+            <span class="-top-3 left-1 relative">to</span>
+            <textarea name="budget_max" class="ml-3 mt-2 w-20 h-9 px-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none overscroll-none" placeholder="Max"></textarea>
 
 
-            <h3 class="ratings"> Guest Ratings</h3>
-            <label>
-                <input type="checkbox" name="excellent" value="excellent" class="checkbox"> Excellent <br>
+            <h3 class="ml-6 mt-6 text-2xl"> Guest Ratings</h3>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="excellent" value="excellent" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> Excellent <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="verygood" value="verygood" class="checkbox"> Very Good <br>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="verygood" value="verygood" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> Very Good <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="good" value="good" class="checkbox"> Good <br>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="good" value="good" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> Good <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="average" value="average" class="checkbox"> Average <br>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="average" value="average" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> Average <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="non-satisfactory" value="non-satisfactory" class="checkbox">
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="non-satisfactory" value="non-satisfactory" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4">
                 Non-Satisfactory <br>
             </label>
 
 
-            <h3 class="amenities"> Amenities </h3>
-            <label>
-                <input type="checkbox" name="interest" value="tech" class="checkbox"> Wi-Fi <br>
+            <h3 class="ml-6 mt-6 text-2xl"> Amenities </h3>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="interest" value="tech" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> Wi-Fi <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="Swimming Pool" value="Swimming Pool" class="checkbox"> Swimming Pool <br>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="Swimming Pool" value="Swimming Pool" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> Swimming Pool <br>
             </label>
 
-            <label>
-                <input type="checkbox" name="Spa" value="Spa" class="checkbox"> Spa <br><br><br><br>
+            <label class="text-lg ml-5">
+                <input type="checkbox" name="Spa" value="Spa" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> Spa <br><br><br><br>
             </label>
 
 
