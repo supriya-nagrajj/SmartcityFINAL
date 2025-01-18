@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Transportation</title>
+    
 </head>
 
 <body class="overflow-y-scroll">
         <nav class="bg-gray-300  flex flex-wrap items-center px-2 text-base text-gray-700 space-x-40 space-y-reverse md:py-0 md:flex md:items-center md:justify-between h-20">
-        <img src="images/logo.png" alt="Mumbai Safar Logo" class="w-36  -ml-4 rounded float-start cursor-pointer" />
+        <img src="logo.png" alt="Mumbai Safar Logo" class="w-36  -ml-4 rounded float-start cursor-pointer" />
         <ul class="md:flex md:items-center">
 
             <li>
@@ -17,7 +19,7 @@
             </li>
 
 
-            <div class="relative inline-block text-left group">
+            <div class= "relative inline-block text-left group">
                 <button class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium  rounded-md focus:outline-none"><a href="" class="ml-20 px-2 py-2 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-400 hover:to-orange-500 rounded-3xl duration-300 font-['Poppins'] text-lg mr-5 hover:border-t-[20px] top-14  shadow-xl border-yellow-200">Bookings</a></button>
                 <div class="absolute left-24 mt-1  w-40 rounded-lg shadow-lg bg-white opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-1000">
                     <ul class="bg-orange-100 overflow-visible z-50 absolute border-none w-[150px] rounded-lg">
@@ -57,7 +59,9 @@
             <option value="iskcon">Iskcon Temple</option>
             <option value="goi">Gateway of India</option>
             <option value="sgnp">Sanjay Gandhi National Park</option>
-            <option value="st">Sidhhivinayak Temple</option>
+
+
+<option value="st">Sidhhivinayak Temple</option>
             <option value="had">Haji Ali Daragh</option>
             <option value="csmvs">Chhatrapati Shivaji Maharaj Vastu Sanghralya</option>
             <option value="ml">Marine Lines</option>
@@ -76,7 +80,7 @@
        <!--SECTION 1  -->
             <div class="rounded-lg  mb-4">
                 <button type="button" class="w-full flex justify-between items-center px-4 py-3 text-white font-medium  hover:bg-orange-200" onclick="toggleDropdown('filter1')">Trains <span>&#9662;</span></button>
-                <div id="hidden px-4 py-2 bg-orange-200">
+                <div id = "filter1" class="hidden px-4 py-2 bg-orange-200">
                     <h3 class="ml-10 mt-6 text-2xl">Class</h3>
                     <label class="text-lg ml-5">
                         <input type="checkbox" name="1A" value="1A" class="text-xl ml-6 mt-4 h-[18px] w-[20px] space-x-4"> <a href="">1st Class AC - 1A</a>
@@ -121,15 +125,9 @@
 
                 </div>
             </div>
-
-        <!-- SECTION 2 -->
         
         </form>
     </div>
-
-
-
-
 
 
     <script>
