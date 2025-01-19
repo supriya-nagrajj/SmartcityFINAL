@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="navbar.css">
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <!-- Navbar -->
-  <!-- Navbar -->
+
+<!-- Navbar -->
 <nav class="flex justify-between items-center bg-[#ded7be] text-[#46a5b5] fixed top-0 w-full z-50 shadow-lg">
-  <img src="images/logo+skyline.png" alt="Mumbai Safar Logo" id="logo" class="h-20 p-0 m-0" /> <!-- Reduced height to h-16 -->
-  <div class="flex space-x-4 mr-8"> <!-- Increased margin-right -->
+  <img src="images/logo+skyline.png" alt="Mumbai Safar Logo" id="logo" class="h-20 p-0 m-0" />
+  <div class="flex space-x-4 mr-8">
     <a href="index.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Home</a>
     <a href="visit.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Visit</a>
     <a href="foods.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Food</a>
@@ -21,13 +21,48 @@
   </div>
 </nav>
 
+<div id="weatherBlock" class="fixed bottom-5 right-4 bg-[#d8cfb0] opacity-70 rounded-lg p-4 w-64 z-50">
+  <h3 class="text-xl font-bold text-[#328c9c] mb-2">Mumbai Weather</h3>
+  <div class="flex items-center space-x-4">
+    <img id="weatherIcon" src="https://via.placeholder.com/50" alt="Weather Icon" class="w-12 h-12">
+    <div>
+      <p id="temperature" class="text-2xl font-bold">--°C</p>
+      <p id="condition" class="text-gray-600">Loading...</p>
+    </div>
+  </div>
+  <p id="updatedTime" class="mt-2 text-sm text-gray-500">Fetching weather data...</p>
+</div>
+
+<script>
+  const apiKey = 'f3b7e19866cb56ed41562aa9b6d3987e'; 
+  const city = 'Mumbai';
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  async function fetchWeather() {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+
+      // Update the weather block with fetched data
+      document.getElementById('temperature').textContent = `${Math.round(data.main.temp)}°C`;
+      document.getElementById('condition').textContent = data.weather[0].description;
+      document.getElementById('weatherIcon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+      document.getElementById('updatedTime').textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+      document.getElementById('condition').textContent = 'Unable to fetch weather.';
+      document.getElementById('updatedTime').textContent = 'Try again later.';
+    }
+  }
+  fetchWeather();
+</script>
 
   <!-- Hero Section -->
   <header class="bg-cover bg-center h-screen pt-16" style="background-image: url('images/mumbaimap2.png'); opacity: 0.9;">
     <div class="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center text-white px-6">
       <h1 class="text-4xl lg:text-6xl font-bold mb-4">Welcome to Mumbai</h1>
       <p class="text-lg lg:text-2xl mb-6">Discover the city of dreams, culture, and heritage.</p>
-      <a href="#visit.html" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Explore Attractions</a>
+      <a href="visit.html" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Explore Attractions</a>
     </div>
   </header>
 
@@ -40,7 +75,6 @@
       </p>
     </div>
   </section>
-
 
   <!-- Carousel Section -->
   <section id="attractions" class="py-16 bg-white">
@@ -118,11 +152,9 @@
   <!-- Footer Section -->
   <footer class="bg-gray-800 text-white py-8">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-sm">&copy; 2025 Explore Mumbai. All rights reserved.</p>
+      <p class="text-sm">&copy; 2025 Java Smart City - Mumbai Safar</p>
       <div class="flex space-x-4 mt-4 md:mt-0">
-        <a href="#" class="text-blue-400 hover:text-blue-500">Facebook</a>
-        <a href="#" class="text-blue-400 hover:text-blue-500">Twitter</a>
-        <a href="#" class="text-blue-400 hover:text-blue-500">Instagram</a>
+        <!-- <a href="#" class="text-blue-400 hover:text-blue-500">Facebook</a> -->
       </div>
     </div>
   </footer>
@@ -131,23 +163,18 @@
     const carousel = document.getElementById("carousel");
     const slides = carousel.children;
     const totalSlides = slides.length;
-
     let currentIndex = 0;
 
-    // Function to update the carousel's position
     function updateCarousel() {
         const offset = -currentIndex * 100; // Shift to the next slide
         carousel.style.transform = `translateX(${offset}%)`;
     }
-
-    // Function to move to the next slide automatically
     function autoSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides; // Loop back to the first slide
+        currentIndex = (currentIndex + 1) % totalSlides;
         updateCarousel();
     }
 
-    // Start the automatic carousel
-    setInterval(autoSlide, 3000); // Change slide every 3 seconds
+    setInterval(autoSlide, 3000); 
 
 </script>
 
