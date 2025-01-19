@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Mumbai Safar</title>
+  <link rel="stylesheet" href="navbar.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Navbar -->
+  <!-- Navbar -->
+<nav class="flex justify-between items-center bg-[#ded7be] text-[#46a5b5] fixed top-0 w-full z-50 shadow-lg">
+  <img src="images/logo+skyline.png" alt="Mumbai Safar Logo" id="logo" class="h-20 p-0 m-0" /> <!-- Reduced height to h-16 -->
+  <div class="flex space-x-4 mr-8"> <!-- Increased margin-right -->
+    <a href="index.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Home</a>
+    <a href="visit.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Visit</a>
+    <a href="foods.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Food</a>
+    <a href="bookings.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Bookings</a>
+    <a href="events" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Events</a>
+  </div>
+</nav>
+
+
+  <!-- Hero Section -->
+  <header class="bg-cover bg-center h-screen pt-16" style="background-image: url('images/mumbaimap2.png'); opacity: 0.9;">
+    <div class="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center text-white px-6">
+      <h1 class="text-4xl lg:text-6xl font-bold mb-4">Welcome to Mumbai</h1>
+      <p class="text-lg lg:text-2xl mb-6">Discover the city of dreams, culture, and heritage.</p>
+      <a href="#visit.html" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Explore Attractions</a>
+    </div>
+  </header>
+
+  <!-- About Mumbai Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-8">About Mumbai</h2>
+      <p class="text-gray-700 leading-8">
+        Mumbai, often called the "City of Dreams," is the financial capital of India and home to Bollywood. Known for its iconic landmarks like the Gateway of India, Marine Drive, and Elephanta Caves, the city offers a blend of rich history, vibrant culture, and modernity. With its bustling local trains, street food, and diverse population, Mumbai truly reflects the spirit of India.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Carousel Section -->
+  <section id="attractions" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Popular Attractions in Mumbai</h2>
+      <div class="flex place-items-end justify-center h-1/2">
+        <div class="relative w-full max-w-lg mx-auto">
+          <!-- Carousel Container -->
+          <div class="overflow-hidden">
+            <div id="carousel" class="flex transition-transform duration-500">
+              <!-- Slide 1 -->
+              <div class="w-full flex-shrink-0 py-6 my-auto">
+                <img src="images/novaara.jpg" alt="Novaara" class="w-full h-auto" />
+              </div>
+              <!-- Slide 2 -->
+              <div class="w-full flex-shrink-0 py-6 my-auto">
+                <img src="images/borev.jpg" alt="Bo Reverie" class="w-full h-auto" />
+              </div>
+              <!-- Slide 3 -->
+              <div class="w-full flex-shrink-0 py-6 my-auto">
+                <img src="images/prithvi.jpg" alt="Prithvi Cafe" class="w-full h-auto" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel Tips Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Travel Tips for Mumbai</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Best Time to Visit</h3>
+          <p class="text-gray-600">The ideal time to visit Mumbai is from October to March when the weather is pleasant.</p>
+        </div>
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Local Transport</h3>
+          <p class="text-gray-600">Use local trains, buses, and auto-rickshaws for economical travel around the city.</p>
+        </div>
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Street Food</h3>
+          <p class="text-gray-600">Don’t miss the iconic Vada Pav, Pav Bhaji, and Bhel Puri from Mumbai’s street vendors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm">&copy; 2025 Explore Mumbai. All rights reserved.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#" class="text-blue-400 hover:text-blue-500">Facebook</a>
+        <a href="#" class="text-blue-400 hover:text-blue-500">Twitter</a>
+        <a href="#" class="text-blue-400 hover:text-blue-500">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -6,92 +6,27 @@
   <title>Events in Mumbai</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="events.css">
-  <link rel="stylesheet" href="navbar.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <nav class="mynavbar">
-      <img src="static/logo+skyline.png" alt="Mumbai Safar Logo" id="logo" />
-      <div class="navigation">
-        <a href="index.html">Home</a>
-        <a href="#">Visit</a>
-        <a href="food.html">Food</a>
-        <a href="bookings.html">Bookings</a>
-        <a href="events.html">Events</a>
-      </div>
-    </nav>
+  <nav class="flex justify-between items-center bg-[#ded7be] text-[#46a5b5] fixed top-0 w-full z-50 shadow-lg">
+  <img src="images/logo+skyline.png" alt="Mumbai Safar Logo" id="logo" class="h-20 p-0 m-0" /> <!-- Reduced height to h-16 -->
+  <div class="flex space-x-4 mr-8"> <!-- Increased margin-right -->
+    <a href="index.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Home</a>
+    <a href="visit.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Visit</a>
+    <a href="foods.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Food</a>
+    <a href="bookings.html" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Bookings</a>
+    <a href="events" class="text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]">Events</a>
+  </div>
+</nav>
 
-  <main>
-    <br><br><br><br><br><br>
-    <h1>Lastest Events in Mumbai</h1>
-    <div id="events-container" class="row g-4">
-      <!-- Events will be dynamically injected here -->
-    </div>
+  <main class="pt-24 px-6">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Redirecting to Events...</h1>
+    <p class="text-center text-gray-600">If you are not redirected, <a href="/events" class="text-blue-500 hover:underline">click here</a>.</p>
   </main>
 
-  <script>
-    // Mock data simulating API response
-    const mockData = {
-      events: [
-        {
-          id: "1",
-          title: "Happening Events",
-          description: "An evening of laughter with the best comedians in town.",
-          image: "https://via.placeholder.com/300x200?text=Comedy+Night",
-          url: "https://in.bookmyshow.com/explore/events-mumbai",
-        },
-        {
-          id: "2",
-          title: "Movies",
-          description: "Experience the magic of Bollywood.",
-          image: "https://via.placeholder.com/300x200?text=Music+Concert",
-          url: "https://in.bookmyshow.com/explore/movies-mumbai",
-        },
-        {
-          id: "3",
-          title: "Classic Plays",
-          description: "Watch timeless plays performed by acclaimed artists.",
-          image: "https://via.placeholder.com/300x200?text=Drama+Fest",
-          url: "https://in.bookmyshow.com/explore/plays-mumbai",
-        },
-      {
-          id: "4",
-          title: "Activities",
-          description: "Thrilling activities around Mumbai",
-          image: "https://via.placeholder.com/300x200?text=Music+Concert",
-          url: "https://in.bookmyshow.com/explore/activities-mumbai",
-        },
-      ],
-    };
-
-    function populateEvents() {
-      const eventsContainer = document.getElementById("events-container");
-      const events = mockData.events;
-
-      events.forEach((event) => {
-        const eventCard = `
-          <div class="col-md-4">
-            <div class="card event-card shadow">
-              <img src="${event.image}" class="card-img-top" alt="${event.title}">
-              <div class="card-body">
-                <h5 class="card-title">${event.title}</h5>
-                <p class="card-text">${event.description}</p>
-                <a href="${event.url}" class="btn btn-primary" target="_blank">View Event</a>
-              </div>
-            </div>
-          </div>
-        `;
-        eventsContainer.innerHTML += eventCard;
-      });
-    }
-
-    // Populate events on page load
-    window.onload = populateEvents;
-  </script>
+  <!-- Add a meta redirect to the servlet -->
+  <meta http-equiv="refresh" content="0; URL=/events">
 </body>
 </html>
-
-
-
