@@ -88,7 +88,7 @@ public class EventsServlet extends HttpServlet {
         out.println("<body class='bg-gray-100'>");
         
         out.println("<nav class=\"flex justify-between items-center bg-[#ded7be] text-[#46a5b5] fixed top-0 w-full z-50 shadow-lg\">");
-        out.println("<img src=\"C:\\Shreya\\DEGREE\\SY\\sem 4\\project\\New Folder\\JavaFINAL\\web\\images\\logo+skyline.png\" alt=\"Mumbai Safar Logo\" id=\"logo\" class=\"h-20 p-0 m-0\" />");
+        out.println("<img src=\"\\images\\logo+skyline.png\" alt=\"Mumbai Safar Logo\" id=\"logo\" class=\"h-20 p-0 m-0\" />");
         out.println("<div class=\"flex space-x-4 mr-8\">");
         out.println("<a href=\"index.html\" class=\"text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]\">Home</a>");
         out.println("<a href=\"visit.html\" class=\"text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]\">Visit</a>");
