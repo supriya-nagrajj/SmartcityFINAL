@@ -159,25 +159,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    const carousel = document.getElementById("carousel");
-    const slides = carousel.children;
-    const totalSlides = slides.length;
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        const offset = -currentIndex * 100; // Shift to the next slide
-        carousel.style.transform = `translateX(${offset}%)`;
-    }
-    function autoSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-    }
-
-    setInterval(autoSlide, 3000); 
-
-</script>
-
+  
 </body>
 </html>
