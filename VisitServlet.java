@@ -17,14 +17,16 @@ class Visit {
     String description;
     String img_url;
     String location_url;
+    String street_view_url;
     double ratings;
 
-    public Visit(int id, String name, String description, String img_url, String location_url, double ratings) {
+    public Visit(int id, String name, String description, String img_url, String location_url, String street_view_url, double ratings) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.img_url = img_url;
         this.location_url = location_url;
+        this.street_view_url = street_view_url;
         this.ratings = ratings;
     }
 }
@@ -51,7 +53,7 @@ public class VisitServlet extends HttpServlet {
             
             Connection conn = DriverManager.getConnection(dbURL,dbUser,dbPassword);
 
-            String query = "select * from visit"; 
+            String query = "select * from test.visit"; 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -62,6 +64,7 @@ public class VisitServlet extends HttpServlet {
                         rs.getString("description"),
                         rs.getString("img_url"),
                         rs.getString("location_url"),
+                        rs.getString("street_view_url"),
                         rs.getDouble("ratings")
                 );
                 visits.add(visit);
@@ -78,13 +81,14 @@ public class VisitServlet extends HttpServlet {
         out.println("<meta charset='UTF-8'>");
         out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
         out.println("<title>Visit</title>");
+        out.println("<link href=\'https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap\' rel=\"stylesheet\">");
         out.println("<script src='https://cdn.tailwindcss.com'></script>");
         out.println("</head>");
-        out.println("<body class='font-poppins text-sm text-gray-800 bg-blue-50 m-0 p-0'>");
+        out.println("<body class='font-poppins text-sm text-gray-800 bg-[#F8F7F2] m-0 p-0'>");
 
         // Navigation bar
         out.println("<nav class=\"flex justify-between items-center bg-[#ded7be] text-[#46a5b5] fixed top-0 w-full z-50 shadow-lg\">");
-        out.println("<img src=\"images/logo+skyline.png\" alt=\"Mumbai Safar Logo\" id=\"logo\" class=\"h-20 p-0 m-0\" />");
+        out.println("<img src=\"images/logo_skyline.jpg\" alt=\"Mumbai Safar Logo\" id=\"logo\" class=\"h-20 p-0 m-0\" />");
         out.println("<div class=\"flex space-x-4 mr-8\">");
         out.println("<a href=\"index.html\" class=\"text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]\">Home</a>");
         out.println("<a href=\"visit.html\" class=\"text-[#328c9c] text-lg font-bold px-3 py-2 rounded transition hover:bg-[#d8cfb0]\">Visit</a>");
@@ -97,24 +101,43 @@ public class VisitServlet extends HttpServlet {
 
         // Main content
         out.println("<main class='pt-24 px-6'>");
-        out.println("<h1 class='text-4xl font-bold text-center text-gray-800 mb-8'>Places to Visit in Mumbai</h1>");
+        out.println("<h1 class='text-6xl text-center text-gray-800 mb-8' style=\"font-family: 'Raleway', serif; font-style: italic; font-weight: normal; letter-spacing: 2px; color: #357f8a; text-transform: uppercase;\">");
+        out.println("Hidden Gems of Mumbai</h1>");
         out.println("<div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>");
+
+
+
+
+
+
+
+
 
         // Loop through the visits list and generate cards
         for (Visit visit : visits) {
             String shortDescription = visit.description.length() > 100
             ? visit.description.substring(0, 100) + "..."
             : visit.description;
-            out.println("<div class='bg-blue-50 rounded-md m-4 mt-5 transition-transform duration-300 hover:scale-105 relative overflow-hidden'>");
+            out.println("<div class='bg-blue-25 rounded-md m-4 mt-5 transition-transform duration-300 hover:scale-105 relative overflow-hidden'>");
             out.println("<div class = 'relative w-full h-64'>");
             out.println("<img src='" + visit.img_url + "' alt='" + visit.name + "' class='w-full h-[250px] object-cover rounded-t-md brightness-110'>");
-            out.println("<div class ='absolute top-2.5 right-2.5 w-12 h-12 flex items-center justify-center rounded-full cursor-pointer transition-transform duration-300 hover:scale-110 hover:bg-[#ffd700]'>");
-            out.println("<img src='images/bookmark.svg' alt='bookmark' class='w-6 h-6'>");
-            out.println("</div>");
+            
+            
             out.println("<a href='" + visit.location_url + "' class='absolute bottom-2.5 left-2.5 w-10 h-10 flex items-center justify-center rounded-full shadow-lg cursor-pointer transition-transform duration-300 hover:scale-110 hover:bg-[#ffd700]'>");
             out.println("<img src='images/location.svg' alt='Location Icon' class='w-6 h-6'>");
             out.println("</a>");
+           
+            
+            //out.println("<iframe src='" + visit.street_view_url + "' class='w-full h-26 rounded-lg border-0'></iframe>");
+            //out.println("<a href='" + visit.street_view_url + "' class='absolute bottom-2.5 right-2.5 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer transition-transform duration-300 hover:scale-110 hover:bg-[#ffd700]'>");
+            out.println("<img src='images/camera.svg' alt='Street View' class='absolute bottom-2.5 right-2.5 w-10 h-10 cursor-pointer rounded-xl shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-[#ffd700]' onclick=\"openStreetView('" + visit.street_view_url + "')\">");
+
+//            out.println("</a>");
+           // out.println("</iframe>");
+            
+            
             out.println("</div>");
+            
             out.println("<div class='p-2 space-y-2'>");
             out.println("<h3 class='text-lg font-bold text-gray-800'>" + visit.name + "</h3>");
             out.println("<details class='group'>");
@@ -128,6 +151,7 @@ public class VisitServlet extends HttpServlet {
             out.println("<div class='w-24 h-4 bg-gray-300 rounded-full'>");
             out.println("<div class='h-full bg-yellow-400 rounded-full' style='width: " + (visit.ratings * 20) + "%'></div>");
             out.println("</div>");
+            
             out.println("<span class='text-sm font-bold text-gray-700'>"+visit.ratings+"</span>");
             out.println("</div>");
             out.println("</div>");
@@ -136,6 +160,26 @@ public class VisitServlet extends HttpServlet {
 
         out.println("</div>");
         out.println("</main>");
+        
+        out.println("<div id='streetViewModal' class='hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>");
+        out.println("  <div class='bg-white p-4 rounded-lg shadow-lg relative w-[90vw] h-[60vh] flex flex-col items-center justify-center'>");
+        out.println("    <img src='images/close.svg' alt='Close' onclick='closeStreetView()' class='absolute top-3 right-3 w-8 h-8 cursor-pointer hover:scale-110 transition-transform'>");
+        out.println("    <iframe id='streetViewFrame' class='w-full h-full rounded-lg' frameborder='0'></iframe>");
+        out.println("  </div>");
+        out.println("</div>");
+
+        
+        out.println("<script>");
+        out.println("function openStreetView(url) {");
+        out.println("    document.getElementById('streetViewFrame').src = url;");
+        out.println("    document.getElementById('streetViewModal').classList.remove('hidden');");
+        out.println("}");
+        out.println("function closeStreetView() {");
+        out.println("    document.getElementById('streetViewModal').classList.add('hidden');");
+        out.println("    document.getElementById('streetViewFrame').src = '';"); // Reset iframe
+        out.println("}");
+        out.println("</script>");
+//        
         out.println("</body>");
         out.println("</html>");
     }
