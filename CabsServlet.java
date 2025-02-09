@@ -72,7 +72,7 @@ public class CabsServlet extends HttpServlet {
         } 
         catch (ClassNotFoundException | SQLException e) {
                 System.out.println(e);
-//                e.printStackTrace();
+               // e.printStackTrace();
         } 
          
         System.out.println("Connected to the database. Number of cabs: " + cab.size());
@@ -88,12 +88,7 @@ public class CabsServlet extends HttpServlet {
             
             //body
             out.println("<body class=\"overflow-y-scroll overflow-x-hidden \">");
-            
-            //Bg-image
-            out.println("<div class=\"fixed top-0 left-0 w-full h-full overflow-hidden\">");
-            out.println("<img src=\"images\\background.avif\" alt=\"Background-image\" class=\"w-full h-full object-cover absolute top-0 left-0 filter blur-sm\">");
-            out.println("</div>");
-            
+               
             
             //navbar
             out.println("<nav class=\"flex justify-between items-center bg-[#fffee2] text-[#38808d] fixed top-0 w-full z-50 shadow-lg\">");
@@ -132,20 +127,34 @@ public class CabsServlet extends HttpServlet {
             out.println("</div>");  
             out.println("</nav>");  
             
-            out.println("<h2 class=\"text-xl sm:text-2xl md:text-3xl font-bold text-center text-[#328c9c] relative z-10 mt-20 sm:mt-32 mx-4 sm:mx-12 bg-[#fff9e3] rounded-2xl\">Cabs</h2>");
+            out.println("<h2 class=\"text-xl sm:text-2xl md:text-3xl font-bold text-center text-[#328c9c] relative z-10 mt-20 sm:mt-32 mx-4 sm:mx-12 bg-[#fff9e3] rounded-2xl shadow-[0px_9px_10px_rgba(0,0,0,0.25)]\">Cabs</h2>");
             
+           
+
             out.println("<div class=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 p-4 sm:p-8 mt-10\">");
             
-            for(Cabs cabs : cab){ 
-                out.println("<div class=\"bg-gradient-to-r from-teal-700 to-white backdrop-blur-sm border-2 border-black h-[380px] w-[370px] p-5 rounded-2xl relative  ml-5\">");  
-                out.println("<img src='" + cabs.img_url + "' class=\"h-[200px] w-[250px] top-[50px] left-[55px] absolute rounded-lg hover:scale-110 transition-all\">");
-                out.println(" <h3 class=\"relative top-[250px] left-2 text-lg font-bold text-center w-[300px] h-[30px] overflow-hidden text-ellipsis whitespace-nowrap\"> " + cabs.places + "</h3>");
-                out.println("<button class=\"relative top-[260px] left-[90px] p-2 m-2 ml-5 rounded-lg bg-slate-500 hover:bg-gradient-to-r  from-orange-300  to-pink-500 text-white transition-all duration-400\"><a href= '" + cabs.link + "' target=\"_blank\">Book Now</a></button>");
-                out.println("</div> ");  
+            for(Cabs cabs : cab){          
+                
+                out.println("<div class='bg-gradient-to-b from-white to-[#66BECD] rounded-md m-4 mt-5 p-2 transition-transform duration-300 hover:scale-105 relative overflow-visible h-[380px] shadow-[0px_9px_10px_rgba(0,0,0,0.25)] '>");
+                out.println("<img src='" + cabs.img_url + "' class='w-full h-[250px] object-cover rounded-t-md brightness-110'>");
+                out.println("<h3 class='text-lg font-bold text-gray-800 text-center mt-4'>" + cabs.places + "</h3>");
+                out.println("<div class='flex-grow'></div>"); 
+                out.println("<button class='absolute bottom-4 left-[130pt] transform -translate-x-1/2 p-2 m-2 rounded-lg bg-yellow-100 hover:bg-gradient-to-r from-orange-300 to-pink-500 hover:text-white text-blue-800 transition-all duration-400 z-10'><a href='" + cabs.link + "' target='_blank'>Book Now</a></button>");
+                out.println("</div>");
                 
             }   
             out.println("</div>");
             out.println("</div>");
+            
+            out.println("<footer class=\"bg-gray-800 text-white py-8\">");
+            out.println("<div class=\"max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center\">");
+            out.println("<p class=\"text-sm\">&copy; 2025 Smart City - Mumbai Safar</p>");
+            out.println("<div class=\"flex space-x-4 mt-4 md:mt-0\">");
+            out.println("<!-- <a href=\"#\" class=\"text-blue-400 hover:text-blue-500\">Facebook</a> -->");
+            out.println("</div>");
+            out.println("</div>");    
+            out.println("</footer>");
+            
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");
