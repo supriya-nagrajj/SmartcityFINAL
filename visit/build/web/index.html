@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Mumbai Safar</title>
+  <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center bg-[#fffee2] text-[#38808d] fixed top-0 w-full z-50 shadow-lg">
+    <img src="images/logo_skyline_brightened.jpg" alt="Mumbai Safar Logo" id="logo" class="h-16 sm:h-20 p-0 m-0" />
+    <div class="flex space-x-2 sm:space-x-4 mr-4 sm:mr-8">
+      <a href="index.html"
+         class="text-[#328c9c] text-sm sm:text-lg font-bold px-2 sm:px-3 py-1 sm:py-2 rounded transition hover:bg-[#f6ecc9]">Home</a>
+      <a href="visit"
+        class="text-[#328c9c] text-sm sm:text-lg font-bold px-2 sm:px-3 py-1 sm:py-2 rounded transition hover:bg-[#f6ecc9]">Visit</a>
+      <a href="food.html"
+        class="text-[#328c9c] text-sm sm:text-lg font-bold px-2 sm:px-3 py-1 sm:py-2 rounded transition hover:bg-[#f6ecc9]">Food</a>
+      <div class="relative inline-flex text-left group">
+        <a href="#"
+          class="text-[#328c9c] text-sm sm:text-lg font-bold px-2 sm:px-3 py-1 sm:py-2 rounded transition hover:bg-[#f6ecc9]">Bookings</a>
+        <div
+          class="absolute left-18 mt-[40px] w-32 sm:w-40 rounded-lg shadow-lg bg-white opacity group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-500">
+          <ul class="bg-[#fff9e4] border-none rounded-lg">
+            <li><a href="HotelsServlet"
+                class="block px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-[#328c9c] hover:bg-[#f3ebc7] hover:text-[#e25a5a]">Hotels</a>
+            </li>
+            <li><a href="TrainsServlet"
+                class="block px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-[#328c9c] hover:bg-[#f3ebc7] hover:text-[#e25a5a]">Trains</a>
+            </li>
+            <li><a href="" BusServlet
+                class="block px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-[#328c9c] hover:bg-[#f3ebc7] hover:text-[#e25a5a]">Bus</a>
+            </li>
+            <li><a href="CabsServlet"
+                class="block px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-[#328c9c] hover:bg-[#f3ebc7] hover:text-[#e25a5a]">Cabs</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <a href="events"
+        class="text-[#328c9c] text-sm sm:text-lg font-bold px-2 sm:px-3 py-1 sm:py-2 rounded transition hover:bg-[#f6ecc9]">Events</a>
+    </div>
+  </nav>
+
+  <div id="weatherBlock" class="fixed bottom-5 right-4 bg-[#fffee2] opacity-70 rounded-lg p-4 w-64 z-50">
+    <h3 class="text-xl font-bold text-[#328c9c] mb-2">Mumbai Weather</h3>
+    <div class="flex items-center space-x-4">
+      <img id="weatherIcon" src="https://via.placeholder.com/50" alt="Weather Icon" class="w-12 h-12">
+      <div>
+        <p id="temperature" class="text-2xl font-bold">--°C</p>
+        <p id="condition" class="text-gray-600">Loading...</p>
+      </div>
+    </div>
+    <p id="updatedTime" class="mt-2 text-sm text-gray-500">Fetching weather data...</p>
+  </div>
+
+  <script>
+    const apiKey = 'f3b7e19866cb56ed41562aa9b6d3987e';
+    const city = 'Mumbai';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    async function fetchWeather() {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        // Update the weather block with fetched data
+        document.getElementById('temperature').textContent = `${Math.round(data.main.temp)}°C`;
+        document.getElementById('condition').textContent = data.weather[0].description;
+        document.getElementById('weatherIcon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        document.getElementById('updatedTime').textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+        document.getElementById('condition').textContent = 'Unable to fetch weather.';
+        document.getElementById('updatedTime').textContent = 'Try again later.';
+      }
+    }
+    fetchWeather();
+  </script>
+
+  <!-- Hero Section -->
+  <header class="bg-cover bg-center h-screen pt-16"
+    style="background-image: url('images/mumbaimap2.png'); opacity: 0.9;">
+    <div class="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center text-white px-6">
+      <h1 class="text-4xl lg:text-6xl font-bold mb-4">Welcome to Mumbai</h1>
+      <p class="text-lg lg:text-2xl mb-6">Discover the city of dreams, culture, and heritage.</p>
+      <a href="visit.html" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Explore
+        Attractions</a>
+    </div>
+  </header>
+
+  <!-- About Mumbai Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-8">About Mumbai</h2>
+      <p class="text-gray-700 leading-8">
+        Mumbai, often called the "City of Dreams," is the financial capital of India and home to Bollywood. Known for
+        its iconic landmarks like the Gateway of India, Marine Drive, and Elephanta Caves, the city offers a blend of
+        rich history, vibrant culture, and modernity. With its bustling local trains, street food, and diverse
+        population, Mumbai truly reflects the spirit of India.
+      </p>
+    </div>
+  </section>
+
+  <section id="attractions" class="py-16 bg-gradient-to-b from-[#ded7be] to-[#ffffff] text-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8 drop-shadow-lg">World Heritage Sites in Mumbai</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+        <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+          <img src="images/csmt.png" alt="Chhatrapati Shivaji Maharaj Terminus"
+            class="w-full h-auto rounded-xl shadow-md" />
+          <p class="text-lg mt-2 text-gray-900 font-semibold">Chhatrapati Shivaji Terminus (Victoria Terminus)</p>
+          <p class="text-gray-600">CST is the main train station in Mumbai, and the main station in western India as
+            well. Opening in 1887, it took ten years to build! Built to commemorate Queen Victoria's Golden Jubilee, the
+            station was known as Victoria Terminus until 1999. It's a supreme example of Victorian Gothic architecture,
+            and is partly based on St Pancras railway station in London. The attention to detail here is just
+            marvellous, with beautiful domes, arches, statues and turrets, both inside and out. There's also a
+            magnificent entry gate loaded with symbolism, crowned by a British lion and an Indian tiger.</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+          <img src="images/elephanta.jpg" alt="Elephanta Caves" class="w-full h-auto rounded-xl shadow-md" />
+          <p class="text-lg mt-2 text-gray-900 font-semibold">Elephanta Caves</p>
+          <p class="text-gray-600">Elephanta Caves are located on an island in the middle of Mumbai harbour, just a
+            short boat ride from the iconic Gateway of India. This site covers five man-made caves dug directly into the
+            side of the mountain. The caves are dedicated to the worship of Shiva, one of the main Hindu gods, and
+            they're a spectacular sight to behold. The main cave here is immense - roughly square shaped, 40 metres on
+            each side, and nearly 10 metres tall. The walls are all covered in carvings depicting the stories of Shiva,
+            done with exquisite detail. But the real highlight here is the Trimurti, a six metre tall relief sculpture
+            of a three-headed Shiva.</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+          <img src="images/VictorianGothicMumbai.jpg" alt="Victorian Gothic"
+            class="w-full h-auto rounded-xl shadow-md" />
+          <p class="text-lg mt-2 text-gray-900 font-semibold">Victorian Gothic and Art Deco Ensembles of Mumbai</p>
+          <p class="text-gray-600">Located in the Fort area of downtown Mumbai, this collection of 94 beautiful
+            buildings dates from the 19th and early 20th centuries. They’re a legacy of the British colonial period.
+            Rich with cash from exports, the local government built enormous grand buildings to make Bombay
+            world-renowned. Highlights include the Bombay High Court, the University of Mumbai, and the City Civil and
+            Sessions building. The CST railway station is also a part of this grand architectural heritage.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel Tips Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Travel Tips for Mumbai</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Best Time to Visit</h3>
+          <p class="text-gray-600">The ideal time to visit Mumbai is from October to March when the weather is pleasant.
+          </p>
+        </div>
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Local Transport</h3>
+          <p class="text-gray-600">Use local trains, buses, and auto-rickshaws for economical travel around the city.
+          </p>
+        </div>
+        <div class="p-6 bg-white shadow-md rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Street Food</h3>
+          <p class="text-gray-600">Don’t miss the iconic Vada Pav, Pav Bhaji, and Bhel Puri from Mumbai’s street
+            vendors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Famous Food Places Section -->
+  <section class="py-16 bg-gradient-to-b from-[#ffffff] to-[#ded7be] text-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8 drop-shadow-lg">Famous Food Spots in Mumbai</h2>
+      <div class="relative w-full overflow-hidden">
+        <div class="flex w-full animate-scroll">
+
+          <div class="flex-none w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+              <img src="images/vadapav.jpg" alt="Dadar Vadapav" class="w-full h-auto rounded-xl shadow-md" />
+              <p class="text-lg mt-2 text-gray-900 font-semibold">Dadar - Vada Pav</p>
+              <p class="text-gray-600">Dadar is famous for its delicious and spicy Vada Pav, a staple street food of
+                Mumbai.</p>
+              <br><br><br><br>
+            </div>
+          </div>
+
+          <div class="flex-none w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+              <img src="images/pavbhaji.jpg" alt="Juhu Beach Pav Bhaji" class="w-full h-auto rounded-xl shadow-md" />
+              <p class="text-lg mt-2 text-gray-900 font-semibold">Juhu Beach - Pav Bhaji</p>
+              <p class="text-gray-600">The buttery, spicy Pav Bhaji at Juhu Beach is a must-try for every food lover.
+              </p>
+              <br><br><br><br><br>
+            </div>
+          </div>
+
+          <div class="flex-none w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+              <img src="images/kebabs.jpg" alt="Mohammed Ali Road - Kebabs"
+                class="w-full h-auto rounded-xl shadow-md" />
+              <p class="text-lg mt-2 text-gray-900 font-semibold">Mohammed Ali Road - Kebabs</p>
+              <p class="text-gray-600">Known for its mouth-watering kebabs and tandoori dishes, Mohammed Ali Road is a
+                paradise for meat lovers.</p>
+              <br><br><br><br>
+            </div>
+          </div>
+
+          <div class="flex-none w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+              <img src="images/bhelpuri.jpg" alt="Chowpatty Bhel Puri" class="w-full h-auto rounded-xl shadow-md" />
+              <p class="text-lg mt-2 text-gray-900 font-semibold">Girgaum Chowpatty - Bhel Puri</p>
+              <p class="text-gray-600">Enjoy the tangy and crispy Bhel Puri at Girgaum Chowpatty, a favorite among
+                locals and tourists alike.</p>
+            </div>
+          </div>
+
+      
+      <div class="flex-none w-full md:w-1/3 p-4">
+        <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+          <img src="images/misalpav.jpg" alt="Thane - Misal Pav" class="w-full h-auto rounded-xl shadow-md" />
+          <p class="text-lg mt-2 text-gray-900 font-semibold">Thane - Misal Pav</p>
+          <p class="text-gray-600">The spicy and flavorful Misal Pav in Thane is a must-try for those who love a
+            kick of spice.</p>
+        </div>
+      </div>
+
+      <div class="flex-none w-full md:w-1/3 p-4">
+        <div class="bg-white rounded-xl shadow-2xl p-6 text-center">
+          <img src="images/gola.jpg" alt="Marine Drive - Ice Gola" class="w-full h-auto rounded-xl shadow-md" />
+          <p class="text-lg mt-2 text-gray-900 font-semibold">Marine Drive - Ice Gola</p>
+          <p class="text-gray-600">Cool down with a colorful and sweet Ice Gola at Marine Drive while enjoying the
+            sea breeze.</p>
+          <br><br><br>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <style>
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        33% {
+          transform: translateX(-100%);
+        }
+
+        66% {
+          transform: translateX(-200%);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .animate-scroll {
+        display: flex;
+        width: 100%;
+        animation: scroll 40s infinite ease-in-out;
+      }
+    </style>
+    </div>
+  </section>
+
+
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm">&copy; 2025 Smart City - Mumbai Safar</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <!-- <a href="#" class="text-blue-400 hover:text-blue-500">Facebook</a> -->
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
